@@ -1,4 +1,6 @@
 homepage: "https://www.data-marketing-school.com"
 versions:
+  - sha: 0a97d0f011f963abdb6b4b5c81135cfe3a766640
+    changeNotes: Add template description
   - sha: 38e62eff3f293546a1faff14041f3c513b508c7b
     changeNotes: Initial release.
