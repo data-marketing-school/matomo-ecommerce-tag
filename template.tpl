@@ -307,7 +307,7 @@ const JSON = require("JSON");
 const localStorage = require("localStorage");
 const ecommerce = copyFromDataLayer("ecommerce");
 const event = copyFromDataLayer("event");
-const CART_KEY = "cart";
+const CART_KEY = "mtm_cart_155c56";
 
 function isMatomoSet() {
   const _paq = copyFromWindow("_paq");
@@ -651,7 +651,7 @@ ___WEB_PERMISSIONS___
                 "mapValue": [
                   {
                     "type": 1,
-                    "string": "cart"
+                    "string": "mtm_cart_155c56"
                   },
                   {
                     "type": 8,
