@@ -1,5 +1,7 @@
 homepage: "https://www.data-marketing-school.com"
 versions:
+  - sha: 04a6ba23e94e774213f893377023912821abc176
+    changeNotes: Change localStorage cart key
   - sha: 815028cfdad58ca86e07141fdc5fd3efa9e6d3f6
     changeNotes: Add support for add_to_cart and remove_from_cart events
   - sha: 0a97d0f011f963abdb6b4b5c81135cfe3a766640
