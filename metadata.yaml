@@ -1,4 +1,5 @@
 homepage: "https://www.data-marketing-school.com"
+documentation: "https://data-marketing-school.com/en/blog/google-tag-manager/matomo-analytics/"
 versions:
   - sha: 04a6ba23e94e774213f893377023912821abc176
     changeNotes: Change localStorage cart key
