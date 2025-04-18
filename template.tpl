@@ -367,9 +367,9 @@ if(isMatomoSet()) {
       makeString(data.orderId || ecommerce.transaction_id),
       makeNumber(data.totalRevenue || ecommerce.value),
       data.subTotal || false,
-      data.tax || ecommerce.tax || false,
-      data.shipping || ecommerce.shipping || false,
-      data.discount || ecommerce.dicount || false
+      data.tax != undefined && data.tax || ecommerce != undefined && ecommerce.tax || false,
+      data.shipping != undefined && data.shipping || ecommerce != undefined && ecommerce.shipping || false,
+      data.discount != undefined && data.discount || ecommerce != undefined && ecommerce.discount || false
     ]);
     
     removeCart();
@@ -678,7 +678,14 @@ ___WEB_PERMISSIONS___
 
 ___TESTS___
 
-scenarios: []
+scenarios: [
+  {
+    name: "Typical Order",
+    setup: "const setInWindow = require(\"setInWindow\");\n\nsetInWindow(\"_paq\", {}, true);",
+    code: "const mockData = {\n  cartProductsArray: [\n    {\n      affiliation: \"Parenthèse\",\n      coupon: \"0.00\",\n      currency: \"EUR\",\n      location_id: \"Chambon-la-Forêt\",\n      discount: 21.9,\n      item_category: \"TINY_HOUSE\",\n      item_name: \"Arion\",\n      item_id: \"6ad7dbca-bc91-4b28-b1bd-2892b48ee325\",\n      item_list_id: \"45f7f344-d5bf-4b93-9ef7-d8342a13045a\",\n      item_list_name: \"Parenthèse\",\n      item_variant: \"\",\n      price: 210,\n      quantity: 2\n    }\n  ],\n  orderId: \"FY9S8\",\n  discount: 0,\n  totalRevenue: 419.7,\n  ecommerceAction: \"order\",\n  subTotal: 418.7,\n  tax: 1.0\n};\n\nrunCode(mockData);\n\nassertApi('gtmOnSuccess').wasCalled();"
+  }
+]
+
 
 
 ___NOTES___
