@@ -10,9 +10,8 @@ ___INFO___
 
 {
   "type": "TAG",
-  "id": "cvt_temp_public_id",
+  "id": "cvt_WVCBZ",
   "version": 1,
-  "securityGroups": [],
   "displayName": "Matomo Analytics - E-commerce Tracking",
   "brand": {
     "id": "github.com_data-marketing-school",
@@ -22,7 +21,8 @@ ___INFO___
   "description": "Matomo e-commerce tag.",
   "containerContexts": [
     "WEB"
-  ]
+  ],
+  "securityGroups": []
 }
 
 
@@ -71,7 +71,7 @@ ___TEMPLATE_PARAMETERS___
   {
     "type": "TEXT",
     "name": "productId",
-    "displayName": "Product ID (or SKU)*",
+    "displayName": "Product ID (or SKU)",
     "simpleValueType": true,
     "enablingConditions": [
       {
@@ -80,12 +80,7 @@ ___TEMPLATE_PARAMETERS___
         "type": "EQUALS"
       }
     ],
-    "valueHint": "1234",
-    "valueValidators": [
-      {
-        "type": "NON_EMPTY"
-      }
-    ]
+    "valueHint": "1234"
   },
   {
     "type": "TEXT",
@@ -326,7 +321,7 @@ if(isMatomoSet()) {
   }
   
   if(data.ecommerceAction == "productView") {
-    callInWindow("_paq.push", ["setEcommerceView", data.productId || ecommerce.items[0].item_id, data.productName || ecommerce.items[0].item_name || false, data.categoryName || ecommerce.items[0].item_category || false, data.productPrice || false]);
+    callInWindow("_paq.push", ["setEcommerceView", data.productId || ecommerce.items[0].item_id, data.productName || ecommerce.items[0].item_name || false, data.categoryName || ecommerce.items[0].item_category || false, data.productPrice || ecommerce.items[0].price || false]);
   }
   
   if(data.ecommerceAction == "cartUpdate") {
